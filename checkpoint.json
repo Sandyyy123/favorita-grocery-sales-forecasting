@@ -1,0 +1,26 @@
+{
+  "project_number": 9,
+  "title": "Favorita Store Sales Forecasting",
+  "methodology": "Multivariate time-series forecasting (retail demand): per-series Prophet baseline with holiday + oil regressors; panel LightGBM advanced model with lag features and quantile-regression heads",
+  "phase": "Phase 1 - scaffolded code-only",
+  "status": {
+    "folder_structure": true,
+    "brief_written": true,
+    "dataset_downloaded": false,
+    "eda_notebook_built": true,
+    "refs_verified_count": 26,
+    "baseline_script_built": true,
+    "advanced_script_built": true,
+    "manuscript_word_count": 4271,
+    "presentation_built": true
+  },
+  "needs_main_session_execution": [
+    "data: kaggle competitions download -c store-sales-time-series-forecasting (kaggle CLI not validated in scaffold session; documented in data/README.md)",
+    "notebooks/01_EDA.ipynb",
+    "src/model_baseline.py",
+    "src/model_advanced.py"
+  ],
+  "blockers": [
+    "Dataset not pre-downloaded: requires Kaggle competition rules acceptance under the user's Kaggle account; download command and manual fallback documented in data/README.md"
+  ]
+}
