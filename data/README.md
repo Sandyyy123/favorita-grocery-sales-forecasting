@@ -10,7 +10,7 @@ This is a Kaggle competition dataset and requires accepting the competition rule
 ## Download command
 
 ```bash
-cd /root/AI/project_root/data
+cd data/
 kaggle competitions download -c store-sales-time-series-forecasting
 unzip -o store-sales-time-series-forecasting.zip
 rm store-sales-time-series-forecasting.zip
