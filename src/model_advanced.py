@@ -24,7 +24,7 @@ Outputs:
   - deliverables/advanced_model.pkl        (LightGBM Booster, point forecast)
   - deliverables/advanced_feature_importance.csv
 
-NOT executed at scaffold time. Run from the project root with:
+NOT executed at implementation time. Run from the project root with:
     python src/model_advanced.py
 """
 

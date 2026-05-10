@@ -13,7 +13,7 @@ The script writes:
   - deliverables/baseline_metrics.json     (per-family RMSLE, overall RMSLE)
   - deliverables/baseline_model.pkl        (one Prophet object as smoke artefact)
 
-NOT executed at scaffold time. Run from the project root with:
+NOT executed at implementation time. Run from the project root with:
     python src/model_baseline.py
 """
 

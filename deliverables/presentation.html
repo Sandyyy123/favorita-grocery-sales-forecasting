@@ -96,7 +96,7 @@
     <div class="item"><span class="lbl">Horizon</span><span class="val">16 days</span></div>
     <div class="item"><span class="lbl">Metric</span><span class="val">RMSLE</span></div>
   </div>
-  <p class="meta">Liora MLE Phase 1 scaffold. Sandeep Grover, Cohort 6973, May 2026.</p>
+  <p class="meta">Portfolio MLE Initial implementation. Sandeep Grover, , May 2026.</p>
 </section>
 
 <section id="motivation">
@@ -146,7 +146,7 @@
 <section id="methods">
   <h2>Methods</h2>
   <h3>Validation protocol</h3>
-  <p>Single time-based holdout: last 16 days of train (2017-07-31 to 2017-08-15) serve as in-sample validation, mirroring the Kaggle public-test window. Rolling-origin cross-validation is deferred to Phase 2.</p>
+  <p>Single time-based holdout: last 16 days of train (2017-07-31 to 2017-08-15) serve as in-sample validation, mirroring the Kaggle public-test window. Rolling-origin cross-validation is deferred to v1.0.</p>
   <h3>Metrics</h3>
   <ul>
     <li><strong>RMSLE</strong> for point forecasts (Kaggle metric; predictions clipped at 0).</li>
@@ -219,26 +219,26 @@
 
 <section id="discussion">
   <h2>Discussion</h2>
-  <h3>Known limitations of the Phase 1 scaffold</h3>
+  <h3>Known limitations of the Initial implementation</h3>
   <div class="box box-pink">
     <ol>
-      <li><strong>No hierarchical reconciliation.</strong> Bottom-level forecasts do not aggregate consistently up to country / state / family totals. MinT reconciliation [Athanasopoulos 2009] is a Phase 2 deliverable.</li>
+      <li><strong>No hierarchical reconciliation.</strong> Bottom-level forecasts do not aggregate consistently up to country / state / family totals. MinT reconciliation [Athanasopoulos 2009] is a v1.0 deliverable.</li>
       <li><strong>Intermittent families fitted with the same regressor.</strong> BOOKS, BABY CARE, HARDWARE, PET SUPPLIES need a Croston / TSB head [Croston 1972, Kim 2016].</li>
-      <li><strong>Locale-aware holidays not joined per store.</strong> Regional holidays apply nationally; matching by store.city is a one-day Phase 2 fix.</li>
+      <li><strong>Locale-aware holidays not joined per store.</strong> Regional holidays apply nationally; matching by store.city is a one-day v1.0 fix.</li>
       <li><strong>Quantile heads only at three quantiles.</strong> Full-distribution forecasts via DeepAR or NBEATSx [Salinas 2020, Olivares 2023] would expose the joint dependence structure.</li>
-      <li><strong>Single time-based holdout.</strong> Rolling-origin cross-validation [Bergmeir 2018] is the standard for Phase 2.</li>
+      <li><strong>Single time-based holdout.</strong> Rolling-origin cross-validation [Bergmeir 2018] is the standard for v1.0.</li>
     </ol>
   </div>
   <h3>Connection to DACH demand planning</h3>
-  <p>The Favorita scaffold transfers to a DACH grocery or pharmacy chain with three substitutions: replace <code>holidays_events.csv</code> with the Bundesland-level public holiday and Schulferien calendar; replace <code>oil.csv</code> with a relevant macro driver (consumer-price index or weather); re-fit. The validation protocol (16-day in-sample holdout, RMSLE) and the metric carry over without modification. Lidl and Edeka publicly describe a similar feature menu (lag, rolling, calendar, holidays, promotions, weather) plus a separate intermittent-demand head for slow movers.</p>
+  <p>The Favorita implementation transfers to a DACH grocery or pharmacy chain with three substitutions: replace <code>holidays_events.csv</code> with the Bundesland-level public holiday and Schulferien calendar; replace <code>oil.csv</code> with a relevant macro driver (consumer-price index or weather); re-fit. The validation protocol (16-day in-sample holdout, RMSLE) and the metric carry over without modification. Lidl and Edeka publicly describe a similar feature menu (lag, rolling, calendar, holidays, promotions, weather) plus a separate intermittent-demand head for slow movers.</p>
   <h3>Why LightGBM, not a deep transformer</h3>
-  <p>M5 competition evidence is unambiguous on this point. Tabular gradient boosting beat tuned deep tabular models at both the point-accuracy and uncertainty tracks [Makridakis 2022], at a fraction of the training cost. A panel LightGBM fit on Favorita completes in roughly 10-30 minutes on a single CPU; a TFT or DeepAR fit at equivalent capacity takes several hours on GPU. The Phase 2 plan adds these models for the families where LightGBM most clearly underperforms, rather than swapping the whole stack.</p>
+  <p>M5 competition evidence is unambiguous on this point. Tabular gradient boosting beat tuned deep tabular models at both the point-accuracy and uncertainty tracks [Makridakis 2022], at a fraction of the training cost. A panel LightGBM fit on Favorita completes in roughly 10-30 minutes on a single CPU; a TFT or DeepAR fit at equivalent capacity takes several hours on GPU. The v1.0 plan adds these models for the families where LightGBM most clearly underperforms, rather than swapping the whole stack.</p>
 </section>
 
 <section id="conclusion">
   <h2>Conclusion</h2>
   <div class="box box-green">
-    <p><strong>Phase 1 scaffold complete.</strong> Two reproducible modelling pipelines (Prophet per-series, LightGBM panel with quantile heads), one EDA notebook, one IMRaD manuscript with 26 verified academic references, and this self-contained presentation. Numerical results land in <code>deliverables/</code> after main-session execution. Phase 2 priorities, in order: hierarchical reconciliation; intermittent-demand head; locale-aware holidays; rolling-origin cross-validation; FFORMA ensembling; deep-learning add-ons (TFT, DeepAR, NBEATSx).</p>
+    <p><strong>Initial implementation complete.</strong> Two reproducible modelling pipelines (Prophet per-series, LightGBM panel with quantile heads), one EDA notebook, one IMRaD manuscript with 26 verified academic references, and this self-contained presentation. Numerical results land in <code>deliverables/</code> after main-session execution. v1.0 priorities, in order: hierarchical reconciliation; intermittent-demand head; locale-aware holidays; rolling-origin cross-validation; FFORMA ensembling; deep-learning add-ons (TFT, DeepAR, NBEATSx).</p>
   </div>
 </section>
 
@@ -255,7 +255,7 @@
 </section>
 
 <footer>
-  Liora MLE Phase 1, Project 9 of 14. Sandeep Grover, Cohort 6973. Mossingen, May 2026.
+  Portfolio MLE v1.0, Project 9 of 14. Sandeep Grover, . Mossingen, May 2026.
 </footer>
 
 </main>

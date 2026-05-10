@@ -10,7 +10,7 @@ This is a Kaggle competition dataset and requires accepting the competition rule
 ## Download command
 
 ```bash
-cd /root/AI/liora_projects/09_favorita_sales/data
+cd /root/AI/project_root/data
 kaggle competitions download -c store-sales-time-series-forecasting
 unzip -o store-sales-time-series-forecasting.zip
 rm store-sales-time-series-forecasting.zip
@@ -38,7 +38,7 @@ Alternative manual route: download the ZIP from the competition page, drop it in
 - `family` has 33 distinct categorical values. Use one-hot or target encoding; LightGBM handles native categoricals via `pd.Categorical`.
 - `onpromotion` is integer count of items on promotion in that store-family-day.
 - `holidays_events.transferred = True` means the legal holiday was moved to a different date and the original date is a working day. Build the effective-holiday calendar by filtering out transferred rows and adding `Transfer`-typed rows.
-- The April 2016 earthquake (Pedernales, Ecuador) disrupts April-June 2016 transactions in many stores. Several Kaggle winners flag this with a binary `is_post_quake` window; the advanced model in this scaffold sets up the column but does not tune the window.
+- The April 2016 earthquake (Pedernales, Ecuador) disrupts April-June 2016 transactions in many stores. Several Kaggle winners flag this with a binary `is_post_quake` window; the advanced model in this implementation sets up the column but does not tune the window.
 
 ## Citation
 
