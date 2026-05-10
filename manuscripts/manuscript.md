@@ -2,7 +2,7 @@
 
 **Author:** Sandeep Grover
 **Programme:** Portfolio MLE Weiterbildung, 
-**Affiliation:** Independent researcher, Mossingen, Germany
+**Affiliation:** Independent researcher, Germany
 
 **Dataset:** Corporacion Favorita Store Sales, Kaggle competition `store-sales-time-series-forecasting`
 **Date:** May 2026
